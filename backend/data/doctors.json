@@ -1,0 +1,132 @@
+[
+  {
+    "id": "DOC-COM-01",
+    "name": "Dr. Payal Rani Das",
+    "title": "Lead Consultant & Medical AI Director",
+    "qualification": "MBBS, FCPS (Ophthalmology), Fellow Vitreo-Retina (Aravind)",
+    "specialty": "Vitreo-Retina, Cataract & Ocular Trauma Surgery",
+    "hospital": "Midtown Eye Hospital, Comilla",
+    "chamber": "Chamber 101, Executive Wing, Midtown Eye Hospital, Laksham Road, Comilla",
+    "visiting_hours": "Saturday - Thursday: 10:00 AM - 2:00 PM & 5:00 PM - 9:00 PM",
+    "emergency_on_call": true,
+    "phone": "+880 1711-209988",
+    "email": "dr.payal.das@midtowneyebd.org",
+    "experience_years": 16,
+    "fee_bdt": 1000,
+    "rating": 4.98,
+    "services": [
+      "Diabetic Retinopathy Screening & Anti-VEGF Injections",
+      "Phacoemulsification & Premium IOL Implantation",
+      "Emergency Ocular Trauma & Retinal Detachment Repair",
+      "Slit-lamp Biomicroscopy & Optical Coherence Tomography (OCT)"
+    ]
+  },
+  {
+    "id": "DOC-COM-02",
+    "name": "Dr. M. A. Rahman",
+    "title": "Senior Consultant - Glaucoma & Anterior Segment",
+    "qualification": "MBBS, DO, MS (Ophthalmology)",
+    "specialty": "Glaucoma, Acute IOP Emergencies & Trabeculectomy",
+    "hospital": "Midtown Eye Hospital, Comilla",
+    "chamber": "Chamber 104, Midtown Eye Hospital, Comilla",
+    "visiting_hours": "Sunday - Thursday: 4:00 PM - 9:00 PM",
+    "emergency_on_call": true,
+    "phone": "+880 1712-334455",
+    "email": "dr.rahman@midtowneyebd.org",
+    "experience_years": 14,
+    "fee_bdt": 800,
+    "rating": 4.89,
+    "services": [
+      "Acute Angle Closure Glaucoma Laser Peripheral Iridotomy",
+      "Gonioscopy & Goldmann Applanation Tonometry",
+      "Visual Field Testing (Humphrey)",
+      "Trabeculectomy & Glaucoma Drainage Implants"
+    ]
+  },
+  {
+    "id": "DOC-COM-03",
+    "name": "Dr. Farhana Sultana",
+    "title": "Consultant - Cornea & External Eye Diseases",
+    "qualification": "MBBS, FCPS (Ophth), Fellow in Cornea",
+    "specialty": "Corneal Ulcers, Keratitis & Chemical Ocular Burns",
+    "hospital": "Midtown Eye Hospital, Comilla",
+    "chamber": "Chamber 106, Midtown Eye Hospital, Comilla",
+    "visiting_hours": "Saturday - Wednesday: 9:00 AM - 1:00 PM & 6:00 PM - 9:00 PM",
+    "emergency_on_call": true,
+    "phone": "+880 1715-778899",
+    "email": "dr.farhana@midtowneyebd.org",
+    "experience_years": 11,
+    "fee_bdt": 800,
+    "rating": 4.92,
+    "services": [
+      "Corneal Scraping & Fungal/Bacterial Culture Evaluation",
+      "Therapeutic Contact Lens & Amniotic Membrane Grafting",
+      "Chemical Injury Decontamination & Neutralization Protocol",
+      "Keratoplasty & Corneal Cross-Linking (CXL)"
+    ]
+  },
+  {
+    "id": "DOC-COM-04",
+    "name": "Dr. Tanvir Ahmed",
+    "title": "Specialist - Pediatric Ophthalmology & Strabismus",
+    "qualification": "MBBS, DCO, Fellow (Pediatric Ophthalmology)",
+    "specialty": "Pediatric Eye Emergencies, Amblyopia & Squint",
+    "hospital": "Midtown Eye Hospital, Comilla",
+    "chamber": "Chamber 108, Child Care Wing, Midtown Eye Hospital, Comilla",
+    "visiting_hours": "Everyday: 3:00 PM - 8:00 PM",
+    "emergency_on_call": false,
+    "phone": "+880 1718-445566",
+    "email": "dr.tanvir@midtowneyebd.org",
+    "experience_years": 9,
+    "fee_bdt": 700,
+    "rating": 4.85,
+    "services": [
+      "Congenital Cataract & Retinopathy of Prematurity (ROP)",
+      "Squint Correction Surgery",
+      "Pediatric Refractive Error & Vision Therapy"
+    ]
+  },
+  {
+    "id": "DOC-COM-05",
+    "name": "Dr. Ananya Sen",
+    "title": "Head of Emergency Triage & Casualty Care",
+    "qualification": "MBBS, MRCS (A&E), Fellowship Emergency Medicine",
+    "specialty": "Acute Trauma, Resuscitation & Emergency Severity Triage",
+    "hospital": "Midtown Emergency & Trauma Center, Comilla",
+    "chamber": "Emergency ER Bay 1, Midtown Hospital Campus, Comilla",
+    "visiting_hours": "24/7 Rotational Emergency Coverage",
+    "emergency_on_call": true,
+    "phone": "+880 1713-990011",
+    "email": "emergency.triage@midtowneyebd.org",
+    "experience_years": 12,
+    "fee_bdt": 600,
+    "rating": 4.95,
+    "services": [
+      "Immediate ESI Level 1-2 Resuscitation & Stabilization",
+      "Acute Chemical Exposure & Laceration Management",
+      "Vital Sign Decompensation & Shock Reversal",
+      "Point-of-Care Ultrasound (POCUS) & Fast Trauma Scan"
+    ]
+  },
+  {
+    "id": "DOC-COM-06",
+    "name": "Dr. Kamrul Hasan",
+    "title": "Senior Critical Care & Internal Medicine Consultant",
+    "qualification": "MBBS, FCPS (Medicine), MD (Critical Care)",
+    "specialty": "Hypertensive Crises, Sepsis, Diabetology & Systemic Emergencies",
+    "hospital": "Midtown Emergency & ICU Complex, Comilla",
+    "chamber": "ICU Block A, Midtown Hospital, Comilla",
+    "visiting_hours": "Saturday - Thursday: 11:00 AM - 3:00 PM & On Call 24/7",
+    "emergency_on_call": true,
+    "phone": "+880 1714-882233",
+    "email": "dr.kamrul@midtowneyebd.org",
+    "experience_years": 15,
+    "fee_bdt": 1000,
+    "rating": 4.91,
+    "services": [
+      "Hypertensive Urgency with Ocular Microangiopathy",
+      "Diabetic Ketoacidosis & Acute Glycemic Management",
+      "Systemic Infection & Sepsis Protocol Management"
+    ]
+  }
+]

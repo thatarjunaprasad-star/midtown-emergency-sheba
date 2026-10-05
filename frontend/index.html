@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midtown Emergency Sheba - Convolutional AI Agent | Midtown Eye Hospital, Comilla</title>
+  <meta name="description" content="Midtown Emergency Sheba - Advanced Medical AI Agent featuring CNNs, RNNs, and LLMs by Payal Rani Das, Midtown Eye Hospital, Comilla.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind+Siliguri:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Emergency Triage Banner -->
+  <aside aria-label="Emergency Hotline" class="top-emergency-banner">
+    <div>
+      🚨 <strong>24/7 MEDICAL & OPHTHALMIC EMERGENCY HELPLINE:</strong>
+      <span style="margin-left: 8px;">Midtown Eye Hospital, Comilla</span>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <a href="tel:+8801711209988">📞 +880 1711-209988</a>
+      <a href="tel:999" style="background: rgba(0,0,0,0.45); color: #ffedd5;">🚑 Dial 999 (National)</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="header-main">
+    <div class="brand-wrapper">
+      <div class="brand-logo-badge">⚕️</div>
+      <div class="brand-info">
+        <h1>Midtown Emergency Sheba <span style="font-family: 'Hind Siliguri', sans-serif; font-size: 1.15rem; color: #0284c7; font-weight: 700;">মিডটাউন ইমার্জেন্সি সেবা</span></h1>
+        <div class="creator-line">
+          <span>Created by:</span>
+          <span class="creator-highlight">Payal Rani Das, Midtown Eye Hospital, Comilla</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="protocol-badge">
+        <span class="pulse-dot"></span>
+        <span>AES-256 AEAD • SHA-256 LEDGER • FHIR R4</span>
+      </div>
+      <button class="btn btn-sos" onclick="openEmergencyModal()">
+        🚨 EMERGENCY SOS
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs-wrapper">
+    <button class="nav-tab-btn active" data-tab="tab-emergency">🚨 Emergency SOS & Triage</button>
+    <button class="nav-tab-btn" data-tab="tab-cnn">👁️ Convolutional Vision AI (CNN)</button>
+    <button class="nav-tab-btn" data-tab="tab-rnn">📈 Sequential Vitals & Trajectory (RNN)</button>
+    <button class="nav-tab-btn" data-tab="tab-consultation">🩺 AI Medical Consultation (LLM)</button>
+    <button class="nav-tab-btn" data-tab="tab-doctors">👨‍⚕️ Doctors & Appointments</button>
+    <button class="nav-tab-btn" data-tab="tab-medicines">💊 Medicines & Drug Interaction</button>
+    <button class="nav-tab-btn" data-tab="tab-security">🔒 Security & FHIR Vault</button>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="app-container">
+
+    <!-- ================= TAB 1: EMERGENCY SOS & RAPID TRIAGE ================= -->
+    <div id="tab-emergency" class="tab-pane active">
+      <div class="card" style="border-left: 6px solid #dc2626; margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title" style="color: #dc2626;">🚨 Rapid Emergency Severity Triage (ESI Protocol)</div>
+            <div class="card-subtitle">Zero-delay assessment protocol for ocular trauma, chemical injury, sudden vision loss, and systemic emergencies.</div>
+          </div>
+          <span class="esi-badge esi-1">MAXIMUM URGENCY</span>
+        </div>
+
+        <p style="margin-bottom: 16px; font-size: 0.95rem;">
+          Select any critical symptoms presenting right now to obtain instant first-aid countermeasures and alert the on-call surgical team at Midtown Eye Hospital, Comilla:
+        </p>
+
+        <div class="grid-3" style="margin-bottom: 20px;">
+          <div class="card" style="border: 2px solid #fecaca; background: #fff5f5; cursor: pointer;" onclick="document.getElementById('sos-chemical').checked = true; evaluateRapidSos();">
+            <h4 style="color: #991b1b;">🧪 Chemical Splash in Eye</h4>
+            <p style="font-size: 0.82rem; color: #475569; margin-top: 4px;">Acid, alkali, battery fluid, lime, or detergent splash into eye.</p>
+            <input type="radio" name="sos_condition" id="sos-chemical" style="margin-top: 10px;">
+          </div>
+
+          <div class="card" style="border: 2px solid #fed7aa; background: #fffaf5; cursor: pointer;" onclick="document.getElementById('sos-glaucoma').checked = true; evaluateRapidSos();">
+            <h4 style="color: #9a3412;">⚡ Severe Eye Pain & Rainbow Halos</h4>
+            <p style="font-size: 0.82rem; color: #475569; margin-top: 4px;">Agonizing eye/headache with nausea and blurred vision (Acute Glaucoma).</p>
+            <input type="radio" name="sos_condition" id="sos-glaucoma" style="margin-top: 10px;">
+          </div>
+
+          <div class="card" style="border: 2px solid #fef08a; background: #fefce8; cursor: pointer;" onclick="document.getElementById('sos-ulcer').checked = true; evaluateRapidSos();">
+            <h4 style="color: #854d0e;">⚪ White Spot on Cornea (Ulcer)</h4>
+            <p style="font-size: 0.82rem; color: #475569; margin-top: 4px;">Severe photophobia, red eye, foreign body trauma, contact lens wear.</p>
+            <input type="radio" name="sos_condition" id="sos-ulcer" style="margin-top: 10px;">
+          </div>
+        </div>
+
+        <div id="sos-action-box" style="display: none; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <strong id="sos-title" style="font-size: 1.1rem; color: #0f172a;"></strong>
+            <span id="sos-level-badge" class="esi-badge esi-1"></span>
+          </div>
+          <div style="margin-bottom: 12px; font-size: 0.95rem;">
+            <strong>Immediate Action (English):</strong>
+            <div id="sos-instructions-en" style="color: #0369a1; font-weight: 600; margin-top: 2px;"></div>
+          </div>
+          <div style="margin-bottom: 16px; font-size: 0.95rem;">
+            <strong>জরুরী নির্দেশনা (বাংলা):</strong>
+            <div id="sos-instructions-bn" style="color: #991b1b; font-weight: 600; margin-top: 2px; font-family: 'Hind Siliguri', sans-serif;"></div>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="tel:+8801711209988" class="btn btn-danger">📞 Direct Midtown Emergency (+880 1711-209988)</a>
+            <button class="btn btn-primary" onclick="proceedToFullConsultFromSos()">Proceed to AI Consultation Form</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview Cards -->
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">👁️ CNN Vision Diagnostics</div>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">
+            Residual Convolutional Neural Network with <strong>Grad-CAM</strong> visual attention for instant slit-lamp and fundus triage.
+          </p>
+          <button class="btn btn-outline btn-sm" style="margin-top: 14px;" onclick="document.querySelector('[data-tab=\'tab-cnn\']').click()">Launch Vision Lab →</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📈 Sequential Vitals (RNN)</div>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">
+            Bidirectional LSTM model calculating shock index, mean arterial pressure, and <strong>acute deterioration forecasting</strong>.
+          </p>
+          <button class="btn btn-outline btn-sm" style="margin-top: 14px;" onclick="document.querySelector('[data-tab=\'tab-rnn\']').click()">Launch Vitals Tracker →</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🏥 Midtown Eye Hospital Comilla</div>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">
+            Led by <strong>Dr. Payal Rani Das</strong>, featuring 24/7 emergency ophthalmic trauma surgical coverage, Vitreo-Retina, Cornea, and Glaucoma clinics.
+          </p>
+          <button class="btn btn-outline btn-sm" style="margin-top: 14px;" onclick="document.querySelector('[data-tab=\'tab-doctors\']').click()">View Specialists →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 2: CONVOLUTIONAL VISION AI (CNN + GRAD-CAM) ================= -->
+    <div id="tab-cnn" class="tab-pane">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">👁️ Convolutional Neural Network (CNN) Diagnostics with Grad-CAM</div>
+            <div class="card-subtitle">Deep residual feature extraction and explainable visual attention heatmaps for ocular and trauma pathologies.</div>
+          </div>
+          <span class="protocol-badge">PyTorch Residual CNN • Grad-CAM XAI</span>
+        </div>
+
+        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 12px;">
+          Upload a patient's slit-lamp photo, external eye photo, or retinal fundus image, or select one of the pre-loaded clinical sample cases from Midtown Eye Hospital, Comilla:
+        </p>
+
+        <!-- Sample Case Chips -->
+        <div>
+          <strong style="font-size: 0.82rem; color: #334155;">One-Click Clinical Test Samples:</strong>
+          <div id="sample-chips-container" class="sample-chips-row">
+            <!-- Populated via cnn_viewer.js -->
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <div class="upload-dropzone" onclick="document.getElementById('cnn-file-input').click()">
+            <div style="font-size: 2rem;">📤</div>
+            <strong style="display: block; margin-top: 6px;">Click or Drag & Drop Clinical Image to Upload</strong>
+            <span style="font-size: 0.8rem; color: #64748b;">Supports JPG, PNG, WEBP (Retinal fundus, Slit-lamp, External ocular trauma)</span>
+            <input type="file" id="cnn-file-input" style="display: none;" accept="image/*" onchange="handleImageUpload(this)">
+          </div>
+        </div>
+
+        <div id="cnn-loading-indicator" style="display: none; text-align: center; margin: 24px 0;">
+          <div style="display: inline-block; width: 36px; height: 36px; border: 4px solid #bae6fd; border-top-color: #0284c7; border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+          <div style="font-weight: 600; color: #0284c7; margin-top: 8px;">Processing Conv2d Layers & Calculating Grad-CAM Gradients...</div>
+        </div>
+      </div>
+
+      <!-- CNN Diagnostic Results Card -->
+      <div id="cnn-results-card" class="card" style="display: none;">
+        <div class="card-header">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <h2 id="cnn-pred-title" style="font-size: 1.3rem; color: #0f172a; margin: 0;"></h2>
+              <span id="cnn-severity-badge" class="esi-badge"></span>
+            </div>
+            <div style="font-size: 0.85rem; color: #0284c7; font-weight: 700; margin-top: 4px;" id="cnn-confidence"></div>
+          </div>
+          <button class="btn btn-primary" onclick="transferCnnToConsultation()">
+            ⚡ Send Diagnosis to Multi-Agent Consultation
+          </button>
+        </div>
+
+        <!-- Grad-CAM Visual Grid -->
+        <h4 style="margin-top: 10px; font-size: 0.95rem; color: #334155;">Explainable AI: Neural Class Activation Mapping (Grad-CAM)</h4>
+        <div class="gradcam-viewers-grid">
+          <div class="viewer-box">
+            <img id="cnn-img-original" alt="Original Clinical Image">
+            <div class="viewer-label">1. Original Clinical Input</div>
+          </div>
+          <div class="viewer-box">
+            <img id="cnn-img-heatmap" alt="Grad-CAM Activation Heatmap">
+            <div class="viewer-label">2. Conv Stage 4 Activation Heatmap</div>
+          </div>
+          <div class="viewer-box" style="border: 2px solid #38bdf8;">
+            <img id="cnn-img-overlay" alt="Grad-CAM Overlay">
+            <div class="viewer-label" style="color: #0284c7;">3. Explainable Lesion Localization</div>
+          </div>
+        </div>
+
+        <!-- Clinical Details Grid -->
+        <div class="grid-2" style="margin-top: 24px;">
+          <div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Clinical Pathology Findings</h4>
+            <div id="cnn-findings" style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 0.88rem; color: #334155;"></div>
+
+            <h4 style="font-size: 0.95rem; margin-top: 14px; margin-bottom: 8px;">Triage Urgency & Immediate Directive</h4>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 12px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;">
+              <div id="cnn-urgency" style="margin-bottom: 4px;"></div>
+              <div id="cnn-recommendations" style="font-weight: 400; color: #450a0a;"></div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Differential Diagnoses (Neural Softmax Distribution)</h4>
+            <div id="cnn-differentials-list" style="background: #f8fafc; padding: 14px; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <!-- Populated via cnn_viewer.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 3: SEQUENTIAL VITALS & TRAJECTORY (RNN) ================= -->
+    <div id="tab-rnn" class="tab-pane">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">📈 Sequential Vitals & Trajectory Recurrent Neural Network (RNN / Bi-LSTM)</div>
+            <div class="card-subtitle">Bidirectional LSTM model with temporal attention for monitoring vital signs trends, shock index, and acute decline.</div>
+          </div>
+          <span class="protocol-badge">PyTorch Bi-LSTM • Temporal Attention</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <strong style="font-size: 0.84rem; color: #334155;">Clinical Simulation Presets:</strong>
+            <button class="btn btn-outline btn-sm" onclick="loadVitalsPreset('shock')" style="margin-left: 6px;">⚡ Septic / Hemodynamic Shock</button>
+            <button class="btn btn-outline btn-sm" onclick="loadVitalsPreset('hypertensive')">⚡ Hypertensive Crisis</button>
+            <button class="btn btn-outline btn-sm" onclick="loadVitalsPreset('stable')">✓ Stable Post-Op</button>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="addVitalRow()">+ Add Time Step</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="vitals-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>HR (bpm)</th>
+                <th>SBP (mmHg)</th>
+                <th>DBP (mmHg)</th>
+                <th>SpO2 (%)</th>
+                <th>Temp (°C)</th>
+                <th>RR (/min)</th>
+                <th>Pain (0-10)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="vitals-table-body">
+              <!-- Rendered via rnn_tracker.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 16px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="btn btn-primary" onclick="runRnnAnalysis()">🔄 Run Bi-LSTM Trajectory Forecast</button>
+        </div>
+      </div>
+
+      <!-- RNN Results & Visuals Card -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Trajectory Forecast & Hemodynamic Metrics</div>
+            <div class="card-subtitle">Real-time physiological risk evaluation by Midtown Emergency Sheba Bi-LSTM.</div>
+          </div>
+          <button class="btn btn-primary" onclick="transferRnnToConsultation()">
+            ⚡ Send Vitals to Multi-Agent Consultation
+          </button>
+        </div>
+
+        <div class="grid-2">
+          <!-- Left: Gauge & Metrics -->
+          <div>
+            <div class="trend-gauge-container">
+              <div id="rnn-risk-gauge" class="gauge-circle gauge-amber">42%</div>
+              <div>
+                <div style="font-size: 0.8rem; text-transform: uppercase; color: #64748b; font-weight: 700;">Acute Deterioration Probability</div>
+                <div id="rnn-trajectory-status" style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 2px;"></div>
+                <div id="rnn-escalation" style="font-size: 0.85rem; color: #0369a1; font-weight: 600; margin-top: 4px;"></div>
+              </div>
+            </div>
+
+            <div class="grid-2" style="margin-top: 14px;">
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px;">
+                <span style="font-size: 0.78rem; color: #64748b; font-weight: 700;">SHOCK INDEX (HR / SBP)</span>
+                <div id="rnn-shock-index" style="font-size: 1.2rem; font-weight: 800; color: #0f172a;"></div>
+                <span style="font-size: 0.75rem; color: #64748b;">Normal: 0.5 - 0.7 | Shock: > 0.9</span>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px;">
+                <span style="font-size: 0.78rem; color: #64748b; font-weight: 700;">MEAN ARTERIAL PRESSURE (MAP)</span>
+                <div id="rnn-map" style="font-size: 1.2rem; font-weight: 800; color: #0f172a;"></div>
+                <span style="font-size: 0.75rem; color: #64748b;">Target Perfusion: 70 - 100 mmHg</span>
+              </div>
+            </div>
+
+            <h4 style="font-size: 0.95rem; margin-top: 16px; margin-bottom: 8px;">Active Physiological Alerts</h4>
+            <div id="rnn-alerts-list"></div>
+          </div>
+
+          <!-- Right: Multi-curve Trend SVG & Attention Weights -->
+          <div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Sequential Vitals Trend (HR: Red, BP: Blue, SpO2: Green)</h4>
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; display: flex; justify-content: center;">
+              <svg id="rnn-trend-svg" width="500" height="180"></svg>
+            </div>
+
+            <h4 style="font-size: 0.95rem; margin-top: 16px; margin-bottom: 8px;">Bi-LSTM Temporal Attention Weights (Critical Decompensation Focus)</h4>
+            <div id="rnn-attention-container" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 4: AI MEDICAL CONSULTATION (LLM AGENT) ================= -->
+    <div id="tab-consultation" class="tab-pane">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">🩺 Multimodal AI Clinical Consultation & Triage Engine</div>
+            <div class="card-subtitle">Synthesizes patient presentation, CNN visual diagnostics, RNN vitals trajectory, and clinical pharmacopeia.</div>
+          </div>
+          <span class="protocol-badge">Medical Multi-Agent • ESI Protocol</span>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="grid-3" style="gap: 12px;">
+              <div class="form-group">
+                <label class="form-label">Patient Name</label>
+                <input type="text" id="consult-name" class="form-control" value="Sultan Mahmud">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Age</label>
+                <input type="number" id="consult-age" class="form-control" value="52">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <select id="consult-gender" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Chief Complaint & Onset Symptoms *</label>
+              <textarea id="consult-complaint" class="form-control" placeholder="e.g. Severe right eye pain, redness, sensitivity to light after farm dust entered eye yesterday..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Medical History & Allergies (e.g. Asthma, Sulfa allergy, Diabetes, Hypertension)</label>
+              <input type="text" id="consult-history" class="form-control" value="Mild bronchial asthma, controlled hypertension">
+            </div>
+
+            <button id="btn-submit-consult" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem; justify-content: center;" onclick="submitConsultation()">
+              ⚡ Generate Multimodal AI Medical Consultation
+            </button>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px;">
+            <h4 style="font-size: 0.92rem; color: #334155; margin-bottom: 10px;">Multimodal Fusion Status</h4>
+            <div style="font-size: 0.85rem; color: #475569; margin-bottom: 8px;">
+              <strong>1. CNN Vision Module:</strong> <span id="fusion-cnn-status" style="color: #0284c7; font-weight: 600;">Active (Linked)</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #475569; margin-bottom: 8px;">
+              <strong>2. RNN Vitals Module:</strong> <span id="fusion-rnn-status" style="color: #0284c7; font-weight: 600;">Active (Linked)</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #475569; margin-bottom: 8px;">
+              <strong>3. Pharmacopeia Contraindication Engine:</strong> <span style="color: #16a34a; font-weight: 600;">Verified (Asthma/Sulfa Rules Active)</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #475569; margin-bottom: 8px;">
+              <strong>4. Doctor Database:</strong> <span style="color: #0284c7; font-weight: 600;">Midtown Eye Hospital, Comilla</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #475569;">
+              <strong>5. Security Anchor:</strong> <span style="color: #16a34a; font-weight: 600;">AES-256-GCM PHI Vault & Merkle Audit Trail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Consultation Report -->
+      <div id="consult-report-card" class="card" style="display: none; border-top: 4px solid var(--primary);">
+        <div class="card-header">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span id="report-esi-badge" class="esi-badge"></span>
+              <h2 style="font-size: 1.25rem; margin: 0; color: #0f172a;">Official Clinical Consultation & Triage Report</h2>
+            </div>
+            <div id="report-esi-desc" style="font-size: 0.86rem; color: #475569; margin-top: 4px; font-weight: 600;"></div>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="exportFhirBundle()">📋 Export HL7 FHIR R4</button>
+            <button class="btn btn-outline btn-sm" onclick="window.print()">🖨️ Print Prescription</button>
+          </div>
+        </div>
+
+        <!-- Bilingual Emergency Instructions Banner -->
+        <div style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 16px; margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #166534; font-size: 0.95rem;">🚨 Immediate First-Aid Directives (English & বাংলা)</strong>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-outline btn-sm" onclick="speakEmergencyInstructions('en')">🔊 Audio (EN)</button>
+              <button class="btn btn-outline btn-sm" onclick="speakEmergencyInstructions('bn')">🔊 অডিও (বাংলা)</button>
+            </div>
+          </div>
+          <div id="report-instr-en" style="color: #0f172a; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px;"></div>
+          <div id="report-instr-bn" style="color: #1e3a8a; font-weight: 600; font-size: 0.95rem; font-family: 'Hind Siliguri', sans-serif;"></div>
+        </div>
+
+        <!-- Structured SOAP Clinical Note -->
+        <h3 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 12px;">Standard Clinical SOAP Note</h3>
+        <div class="grid-2" style="margin-bottom: 20px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px;">
+            <strong style="color: #0369a1; font-size: 0.88rem;">S - Subjective:</strong>
+            <p id="soap-s" style="font-size: 0.85rem; margin-top: 4px; color: #334155;"></p>
+
+            <strong style="color: #0369a1; font-size: 0.88rem; display: block; margin-top: 10px;">O - Objective (CNN & RNN):</strong>
+            <p id="soap-o" style="font-size: 0.85rem; margin-top: 4px; color: #334155;"></p>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px;">
+            <strong style="color: #0369a1; font-size: 0.88rem;">A - Assessment:</strong>
+            <p id="soap-a" style="font-size: 0.85rem; margin-top: 4px; color: #334155; font-weight: 600;"></p>
+
+            <strong style="color: #0369a1; font-size: 0.88rem; display: block; margin-top: 10px;">P - Plan & Referrals:</strong>
+            <p id="soap-p" style="font-size: 0.85rem; margin-top: 4px; color: #334155; white-space: pre-line;"></p>
+          </div>
+        </div>
+
+        <!-- Matched Specialist Doctors at Midtown Eye Hospital Comilla -->
+        <h3 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 12px;">Recommended Consultants (Midtown Eye Hospital, Comilla)</h3>
+        <div id="report-doctors-list" class="grid-3" style="margin-bottom: 20px;"></div>
+
+        <!-- Prescribed Medications & Safety Warnings -->
+        <h3 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 12px;">Emergency Pharmacotherapy & Safety Verification</h3>
+        <div id="report-meds-list" style="margin-bottom: 20px;"></div>
+
+        <!-- Security & Audit Info -->
+        <div style="background: #0f172a; color: #cbd5e1; border-radius: 8px; padding: 12px; font-size: 0.8rem; font-family: monospace;">
+          <div style="color: #38bdf8; font-weight: 700; margin-bottom: 4px;">🔒 Cryptographic Security Proof:</div>
+          <div>PHI Cipher: <span id="report-cipher-algo"></span></div>
+          <div>Audit Block SHA-256: <span id="report-audit-hash"></span></div>
+          <div style="color: #94a3b8; margin-top: 4px;">Creator Attribution: Payal Rani Das, Midtown Eye Hospital, Comilla</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 5: DOCTORS & APPOINTMENTS ================= -->
+    <div id="tab-doctors" class="tab-pane">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">👨‍⚕️ Specialist Doctors & Emergency Consultants</div>
+            <div class="card-subtitle">Midtown Eye Hospital, Comilla and Regional Emergency Trauma Center.</div>
+          </div>
+          <span class="protocol-badge">Comilla Clinical Registry</span>
+        </div>
+
+        <p style="font-size: 0.9rem; color: #475569; margin-bottom: 16px;">
+          Find ophthalmologists, surgeons, and emergency care physicians. Appointments and 24/7 emergency trauma on-call consults can be booked directly:
+        </p>
+
+        <div id="all-doctors-grid" class="grid-3">
+          <!-- Populated via consultation.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 6: MEDICINES & DRUG INTERACTION ================= -->
+    <div id="tab-medicines" class="tab-pane">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">💊 Emergency Pharmacopeia & Interaction Safety Vault</div>
+            <div class="card-subtitle">Verified ophthalmic drops, systemic emergency drugs, dosages, and contraindications.</div>
+          </div>
+          <span class="protocol-badge">Safety Rules Active</span>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search medicines by name or category (e.g. Moxifloxacin, Glaucoma, Pain)..." oninput="loadMedicinesList(this.value)">
+        </div>
+
+        <!-- Drug Interaction Tool -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 16px; margin-bottom: 20px;">
+          <h4 style="font-size: 0.95rem; color: #0f172a; margin-bottom: 6px;">⚡ Real-time Drug-Drug Interaction Checker</h4>
+          <p style="font-size: 0.84rem; color: #64748b; margin-bottom: 10px;">
+            Enter comma-separated medications to screen for lethal or dangerous interactions (e.g. <code>Timolol, Verapamil</code> or <code>Prednisolone, Ketorolac</code>):
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <input type="text" id="drug-interaction-input" class="form-control" value="Timolol, Verapamil">
+            <button class="btn btn-primary" onclick="checkDrugInteractions()">Check Interactions</button>
+          </div>
+          <div id="interaction-results-container" style="margin-top: 12px;"></div>
+        </div>
+
+        <div id="all-medicines-list">
+          <!-- Populated via consultation.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 7: SECURITY & FHIR VAULT ================= -->
+    <div id="tab-security" class="tab-pane">
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <div>
+            <div class="card-title">🔒 Cryptographic Audit Ledger & Standard Protocols</div>
+            <div class="card-subtitle">Hospital-grade backend security conforming to HIPAA principles, HL7 FHIR R4, and SHA-256 tamper detection.</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="verifyAuditLedger()">Verify Ledger Integrity</button>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Mathematical Ledger Status</h4>
+            <div id="ledger-status-text" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px;">
+              <div style="font-weight: 600; color: #16a34a;">Click 'Verify Ledger Integrity' to validate blockchain hashes.</div>
+            </div>
+
+            <h4 style="font-size: 0.95rem; margin-top: 16px; margin-bottom: 8px;">Architecture Security Specifications</h4>
+            <div style="font-size: 0.85rem; color: #334155; line-height: 1.7;">
+              <div>• <strong>AEAD Encryption:</strong> AES-256-GCM 96-bit nonce encryption for Protected Health Information (PHI).</div>
+              <div>• <strong>Audit Ledger:</strong> Merkle-chain SHA-256 immutable block log.</div>
+              <div>• <strong>Triage Protocol:</strong> Emergency Severity Index (ESI Level 1 to 5).</div>
+              <div>• <strong>Interoperability:</strong> HL7 FHIR R4 Bundle standard format.</div>
+              <div>• <strong>App Creator:</strong> Payal Rani Das, Midtown Eye Hospital, Comilla.</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Recent Cryptographic Blocks</h4>
+            <div id="ledger-blocks-container" style="max-height: 350px; overflow-y: auto;">
+              <!-- Populated via consultation.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- Emergency SOS Modal -->
+  <div id="emergency-sos-modal" class="modal-overlay">
+    <div class="modal-dialog" style="border-top: 6px solid #dc2626;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="color: #dc2626; font-size: 1.25rem;">🚨 EMERGENCY MEDICAL HOTLINES</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeEmergencyModal()">✕</button>
+      </div>
+      <p style="font-size: 0.92rem; color: #334155; margin-bottom: 16px;">
+        If you or the patient is suffering from sudden blindness, ocular chemical trauma, severe bleeding, or chest pain, call immediately:
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a href="tel:+8801711209988" class="btn btn-danger" style="justify-content: center; padding: 12px; font-size: 1rem;">
+          📞 Call Midtown Eye Hospital Emergency (+880 1711-209988)
+        </a>
+        <a href="tel:999" class="btn btn-outline" style="justify-content: center; padding: 12px; font-size: 1rem; border-color: #dc2626; color: #dc2626; font-weight: 700;">
+          🚑 Dial National Emergency Hotline (999)
+        </a>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 18px; font-size: 0.85rem; color: #475569;">
+        <strong>Hospital Address:</strong> Executive Wing, Midtown Eye Hospital, Laksham Road, Comilla, Bangladesh.<br>
+        <strong>Director of Medical AI:</strong> Dr. Payal Rani Das
+      </div>
+    </div>
+  </div>
+
+  <!-- Doctor Booking Modal -->
+  <div id="booking-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="font-size: 1.2rem; color: #0f172a;">🗓 Confirm Consultation Booking</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeBookingModal()">✕</button>
+      </div>
+      <div style="margin-bottom: 14px; font-size: 0.9rem; color: #0284c7; font-weight: 700;" id="modal-booking-doc-name"></div>
+      
+      <div class="form-group">
+        <label class="form-label">Patient Full Name</label>
+        <input type="text" id="booking-pt-name" class="form-control" value="Sultan Mahmud">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact Mobile Number *</label>
+        <input type="tel" id="booking-pt-phone" class="form-control" placeholder="+880 17xx-xxxxxx" value="+880 1712-998877">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Preferred Date & Time</label>
+        <input type="datetime-local" class="form-control" value="2026-10-06T11:00">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px;">
+        <button class="btn btn-outline" onclick="closeBookingModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmBooking()">Confirm & Send SMS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HL7 FHIR R4 Modal -->
+  <div id="fhir-export-modal" class="modal-overlay">
+    <div class="modal-dialog" style="max-width: 800px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="font-size: 1.2rem; color: #0f172a;">📋 HL7 FHIR R4 Medical Bundle Standard</h3>
+        <button class="btn btn-outline btn-sm" onclick="closeFhirModal()">✕</button>
+      </div>
+      <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">
+        Interoperable standard bundle conforming to HL7 FHIR R4 schema for hospital EHR/EMR exchange.
+      </p>
+      <pre id="fhir-json-code" style="background: #0f172a; color: #38bdf8; padding: 14px; border-radius: 8px; font-size: 0.78rem; max-height: 400px; overflow: auto;"></pre>
+      <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px;">
+        <button class="btn btn-outline" onclick="copyFhirJson()">Copy JSON</button>
+        <button class="btn btn-primary" onclick="closeFhirModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div>
+        <div class="footer-creator">Midtown Emergency Sheba (মিডটাউন ইমার্জেন্সি সেবা)</div>
+        <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 4px;">
+          Created by <strong>Payal Rani Das, Midtown Eye Hospital, Comilla.</strong>
+        </div>
+        <div style="color: #64748b; font-size: 0.8rem; margin-top: 2px;">
+          High-Level CNNs, RNNs, and Medical Multi-Agent LLMs with HL7 FHIR R4 and AEAD Security.
+        </div>
+      </div>
+      <div style="text-align: right; color: #94a3b8; font-size: 0.82rem;">
+        <div>📍 Laksham Road, Comilla, Bangladesh</div>
+        <div>Emergency 24/7: +880 1711-209988</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/cnn_viewer.js"></script>
+  <script src="js/rnn_tracker.js"></script>
+  <script src="js/consultation.js"></script>
+
+  <script>
+    // Quick SOS handler
+    function evaluateRapidSos() {
+      const box = document.getElementById("sos-action-box");
+      const title = document.getElementById("sos-title");
+      const en = document.getElementById("sos-instructions-en");
+      const bn = document.getElementById("sos-instructions-bn");
+      const badge = document.getElementById("sos-level-badge");
+
+      box.style.display = "block";
+
+      if (document.getElementById("sos-chemical").checked) {
+        title.innerText = "Chemical Burn / Corrosive Trauma to Eye";
+        badge.innerText = "ESI Level 1 - ZERO DELAY";
+        badge.className = "esi-badge esi-1";
+        en.innerText = "FLUSH IMMEDIATELY with clean water or saline for 20-30 MINUTES continuously. Do NOT bandage or rub. Rush to hospital!";
+        bn.innerText = "অবিলম্বে পরিষ্কার পানি দিয়ে একটানা ২০-৩০ মিনিট চোখ ধুতে থাকুন। কোনো ব্যান্ডেজ করবেন না। দ্রুত হাসপাতালে আসুন!";
+      } else if (document.getElementById("sos-glaucoma").checked) {
+        title.innerText = "Acute Angle-Closure Glaucoma Crisis";
+        badge.innerText = "ESI Level 2 - EMERGENT";
+        badge.className = "esi-badge esi-2";
+        en.innerText = "Extreme eye pressure spike! Do not sleep or take mydriatics. Specialist pressure lowering needed within 1 hour.";
+        bn.innerText = "চোখের প্রেসার অতিরিক্ত বেড়ে গেছে! কালক্ষেপণ না করে দ্রুত জরুরি বিভাগে গিয়ে চোখের প্রেশার কমানোর ব্যবস্থা নিন।";
+      } else {
+        title.innerText = "Corneal Ulcer / Severe Keratitis";
+        badge.innerText = "ESI Level 2 - URGENT";
+        badge.className = "esi-badge esi-2";
+        en.innerText = "Do NOT use steroid drops! Keep eye protected from dust and see cornea surgeon Dr. Payal Rani Das immediately.";
+        bn.innerText = "কোনো অবস্থায় স্টেরয়েড ড্রপ দেবেন না! চোখে হাত দেবেন না এবং দ্রুত কর্নিয়া বিশেষজ্ঞকে দেখান।";
+      }
+    }
+
+    function proceedToFullConsultFromSos() {
+      const consultTab = document.querySelector('[data-tab="tab-consultation"]');
+      if (consultTab) consultTab.click();
+      const complaintInput = document.getElementById("consult-complaint");
+      if (complaintInput) {
+        const title = document.getElementById("sos-title").innerText;
+        complaintInput.value = `EMERGENCY ALERT: ${title}. Immediate attention required.`;
+      }
+    }
+  </script>
+</body>
+</html>
